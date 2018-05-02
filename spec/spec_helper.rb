@@ -21,6 +21,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require './spec/features/web_helpers'
+require 'player'
 Capybara.app = Battle
 
 
