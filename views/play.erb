@@ -1,4 +1,8 @@
 <h2> Player 1: <%= @player1_name %> vs. Player 2: <%= @player2_name %> </h2>
 
-<h3> Player 2's HP: 40 </h3>
+<h3> <%= @player2_name %>'s HP: 40 </h3>
 <progress id = "player2" value="40" max="100"></progress>
+
+<form action="/attack">
+  <input type="submit" value="Attack">
+</form> 
