@@ -1,14 +1,23 @@
 class Game
 
-  attr_reader :player1, :player2
+  attr_reader :player1, :player2, :current_player
 
   def initialize(player1, player2)
     @player1 = player1
     @player2 = player2
+    @current_player = player1
   end
 
-  def attack(player)
-    player.hit
+  def switch_turn
+    @current_player = [@player1,@player2].find {|player| player != @current_player }
+  end
+
+  def attack
+    opponent.hit
+  end
+
+  def opponent
+    [@player1,@player2].find {|player| player != @current_player }
   end
 
 end
