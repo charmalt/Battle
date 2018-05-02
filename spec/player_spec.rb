@@ -16,16 +16,9 @@ describe Player do
 
   end
 
-  describe '#attack' do
-
-    it 'allows player to damage other player' do
-      expect(player2).to receive(:hit)
-      player1.attack(player2)
-    end
-
-    it 'attacked player loses HP' do
-      expect{ player2.hit }.to change{ player2.hp }.by(-Player::HIT_STRENGTH)
-    end
-
+  it 'attacked player loses HP' do
+    expect{ player2.hit }.to change{ player2.hp }.by(-Player::HIT_STRENGTH)
   end
+
+
 end

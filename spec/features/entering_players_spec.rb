@@ -15,13 +15,13 @@ end
 feature "Attacking Player 2" do
   scenario "attack and get confirmation" do
     sign_in_and_play
-    click_button "Attack"
+    click_button "Attack Opponent"
     expect(page).to have_text "David attacked Luke!"
   end
 
   scenario "reduce player's HP" do
     sign_in_and_play
-    click_button "Attack"
+    click_button "Attack Opponent"
     expect(page).to have_text "David attacked Luke!"
     click_button "Return"
     expect(page).to have_text "Luke's HP: 90"
