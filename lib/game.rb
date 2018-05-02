@@ -9,7 +9,7 @@ class Game
   end
 
   def switch_turn
-    @current_player = [@player1,@player2].find {|player| player != @current_player }
+    @current_player = opponent
   end
 
   def attack

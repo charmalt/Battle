@@ -15,7 +15,7 @@ describe Game do
   describe '#opponent' do
 
     it 'set to player playing against current player' do
-      expect(game.opponent).to be player2
+      expect(game.current_player).to_not be player2
     end
 
   end
@@ -29,7 +29,7 @@ describe Game do
     end
 
     it 'switches opponent' do
-      expect(game.opponent).to be player1
+      expect(game.current_player).to_not be player1
     end
 
   end
