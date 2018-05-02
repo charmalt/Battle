@@ -57,3 +57,13 @@ feature "Attacking Player 1" do
     expect(page).to have_text "David's HP: 90"
   end
 end
+
+feature "Losing a game" do
+
+  scenario "Player 2 loses the game" do
+    sign_in_and_play
+    19.times{ play_a_turn }
+    expect(page).to have_text "Game over! David won!"
+  end
+
+end

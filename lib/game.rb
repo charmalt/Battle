@@ -1,6 +1,6 @@
 class Game
 
-  attr_reader :player1, :player2, :current_player
+  attr_reader :player1, :player2, :current_player, :winner
 
   def initialize(player1, player2)
     @player1 = player1
@@ -18,6 +18,14 @@ class Game
 
   def opponent
     [@player1,@player2].find {|player| player != @current_player }
+  end
+
+  def over?
+    @player1.hp == 0 || @player2.hp == 0
+  end
+
+  def winner
+    [@player1,@player2].find { |player| player.hp != 0 }
   end
 
 end

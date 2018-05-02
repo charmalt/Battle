@@ -19,6 +19,7 @@ class Battle < Sinatra::Base
 
   get '/play' do
     @game = $game
+    redirect('/gameover') if @game.over?
     erb :play
   end
 
@@ -27,6 +28,11 @@ class Battle < Sinatra::Base
     @game.attack
     @game.switch_turn
     erb :attack
+  end
+
+  get '/gameover' do
+    @game = $game
+    erb :gameover
   end
 
   run! if app_file == $0

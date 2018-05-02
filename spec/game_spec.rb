@@ -59,4 +59,14 @@ describe Game do
 
   end
 
+  describe '#over' do
+
+    it "returns true if either player has 0 HP left" do
+      allow(game.player1).to receive(:hp).and_return(10)
+      allow(game.player2).to receive(:hp).and_return(0)
+      expect(game.over?).to be true
+    end
+
+  end
+
 end
