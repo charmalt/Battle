@@ -10,7 +10,17 @@ class Player
     @hp = HP_MAX
   end
 
+  def attack(player)
+    player.hit
+  end
+
   def hit
+    lose_hp
+  end
+
+  private
+
+  def lose_hp
     @hp -= HIT_STRENGTH
   end
 
