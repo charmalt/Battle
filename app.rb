@@ -6,20 +6,21 @@ class Battle < Sinatra::Base
 
   enable :sessions
 
+$game = Game.new(Player.new, Player.new)
+
   get '/' do
     erb :index
   end
 
   post '/names' do
-    @player1 = Player.new(params[:player1])
-    @player2 = Player.new(params[:player2])
-    $game = Game.new(@player1, @player2)
+    $game.player1.set_name(params[:player1])
+    $game.player2.set_name(params[:player2])
     redirect('/play')
   end
 
   get '/play' do
     @game = $game
-    redirect('/gameover') if @game.over?
+    redirect('/gameover') if $game.over?
     erb :play
   end
 
@@ -27,6 +28,7 @@ class Battle < Sinatra::Base
     @game = $game
     @game.attack
     @game.switch_turn
+    p @game.current_player
     erb :attack
   end
 

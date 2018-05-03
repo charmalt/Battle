@@ -4,9 +4,12 @@ class Player
   attr_reader :hp
   HP_MAX = 100
 
-  def initialize(name)
-    @name = name
+  def initialize
     @hp = HP_MAX
+  end
+
+  def set_name(name)
+    @name = name
   end
 
   def hit(rate)

@@ -1,13 +1,14 @@
 describe Player do
 
-  subject(:player1) { described_class.new(name) }
-  subject(:player2) { described_class.new('David') }
+  subject(:player1) { described_class.new }
+  subject(:player2) { described_class.new }
   let(:name) { 'Luke' }
   let(:rate) { 10 }
 
   describe '#initialize' do
 
     it 'has name' do
+      player1.set_name(name)
       expect(player1.name).to be name
     end
 
