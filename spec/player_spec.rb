@@ -3,6 +3,7 @@ describe Player do
   subject(:player1) { described_class.new(name) }
   subject(:player2) { described_class.new('David') }
   let(:name) { 'Luke' }
+  let(:rate) { 10 }
 
   describe '#initialize' do
 
@@ -17,7 +18,7 @@ describe Player do
   end
 
   it 'attacked player loses HP' do
-    expect{ player2.hit }.to change{ player2.hp }.by(-Player::HIT_STRENGTH)
+    expect{ player2.hit(rate) }.to change{ player2.hp }.by(-rate)
   end
 
 

@@ -24,6 +24,10 @@ feature "Attacking Player 2" do
     expect(page).to have_text "David attacked Luke!"
   end
 
+  before do
+    allow(Kernel).to receive(:rand).and_return(10)
+  end
+
   scenario "reduce player's HP" do
     sign_in_and_play
     click_button "Attack"
@@ -50,6 +54,10 @@ feature "Attacking Player 1" do
     expect(page).to have_text "Luke attacked David!"
   end
 
+  before do
+    allow(Kernel).to receive(:rand).and_return(10)
+  end
+
   scenario "reduce player's HP" do
     sign_in_and_play
     play_a_turn
@@ -59,6 +67,10 @@ feature "Attacking Player 1" do
 end
 
 feature "Losing a game" do
+
+  before do
+    allow(Kernel).to receive(:rand).and_return(10)
+  end
 
   scenario "Player 2 loses the game" do
     sign_in_and_play

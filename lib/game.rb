@@ -13,7 +13,8 @@ class Game
   end
 
   def attack
-    opponent.hit
+    rate = Kernel.rand(1..20)
+    opponent.hit(rate)
   end
 
   def opponent
@@ -21,11 +22,11 @@ class Game
   end
 
   def over?
-    @player1.hp == 0 || @player2.hp == 0
+    @player1.hp <= 0 || @player2.hp <= 0
   end
 
   def winner
-    [@player1,@player2].find { |player| player.hp != 0 }
+    [@player1,@player2].find { |player| player.hp > 0 }
   end
 
 end

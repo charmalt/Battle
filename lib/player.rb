@@ -2,7 +2,6 @@ class Player
 
   attr_reader :name
   attr_reader :hp
-  HIT_STRENGTH = 10
   HP_MAX = 100
 
   def initialize(name)
@@ -10,14 +9,14 @@ class Player
     @hp = HP_MAX
   end
 
-  def hit
-    lose_hp
+  def hit(rate)
+    lose_hp(rate)
   end
 
   private
 
-  def lose_hp
-    @hp -= HIT_STRENGTH
+  def lose_hp(rate)
+    @hp -= rate
   end
 
 end
