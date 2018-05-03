@@ -6,9 +6,8 @@ class Battle < Sinatra::Base
 
   enable :sessions
 
-$game = Game.new(Player.new, Player.new)
-
   get '/' do
+    $game = Game.new(Player.new, Player.new)
     erb :index
   end
 
@@ -20,7 +19,7 @@ $game = Game.new(Player.new, Player.new)
 
   get '/play' do
     @game = $game
-    redirect('/gameover') if $game.over?
+    redirect('/gameover') if @game.over?
     erb :play
   end
 
@@ -28,7 +27,6 @@ $game = Game.new(Player.new, Player.new)
     @game = $game
     @game.attack
     @game.switch_turn
-    p @game.current_player
     erb :attack
   end
 
