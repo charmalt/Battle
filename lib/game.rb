@@ -1,5 +1,6 @@
 class Game
 
+
   attr_reader :player1, :player2, :current_player, :winner
 
   def initialize(player1, player2)
@@ -7,6 +8,15 @@ class Game
     @player2 = player2
     @current_player = player1
   end
+
+  def self.save_instance(player1, player2)
+    @instance = Game.new(player1, player2)
+  end
+
+  def self.instance
+    @instance
+  end
+
 
   def switch_turn
     @current_player = opponent
